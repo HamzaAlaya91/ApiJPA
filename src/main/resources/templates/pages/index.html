@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>	
+	<table align="center" border="1">
+		<tr align="center">
+			<th>ID</th>
+			<th>Email</th>
+			<th>Nom</th>
+		</tr>
+		<tr align="center" th:each="patientsToHtml : ${patientsToHtmls}">
+			<td th:text="${patientsToHtml.id}"></td>
+			<td th:text="${patientsToHtml.email}"></td>
+			<td th:text="${patientsToHtml.nom}"></td>
+		</tr>
+		
+		<span th:text="${#locale.country}"></span>
+</body>
+</html>

@@ -25,8 +25,8 @@ public class Groupe {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String groupeName;
+	private String groupename;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	private Collection<Utlisateur> utlisateurs = new ArrayList<>();
+	private Collection<Utilisateur> utilisateurs = new ArrayList<>();
 }

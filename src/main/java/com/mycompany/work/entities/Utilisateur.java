@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data  @NoArgsConstructor @AllArgsConstructor
-public class Utlisateur {
+public class Utilisateur {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Utlisateur {
 	private String username;
 	private String password;
 	
-	@ManyToMany(mappedBy = "utlisateurs" , fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "utilisateurs" , fetch = FetchType.EAGER)
 	private Collection<Groupe> groupes = new ArrayList<>();
 
 	

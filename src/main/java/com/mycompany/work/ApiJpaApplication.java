@@ -1,6 +1,7 @@
 package com.mycompany.work;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,10 +12,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.mycompany.work.controllers.PatientController;
+import com.mycompany.work.entities.Enseignant;
+import com.mycompany.work.entities.Etudiant;
 import com.mycompany.work.entities.Groupe;
 import com.mycompany.work.entities.Patient;
 import com.mycompany.work.entities.Utilisateur;
 import com.mycompany.work.repositories.IPatientRepository;
+import com.mycompany.work.repositories.IPersonneRepository;
 import com.mycompany.work.repositories.IUserRepository;
 import com.mycompany.work.services.IUserService;
 
@@ -26,6 +30,9 @@ public class ApiJpaApplication {
 	
 	@Autowired
 	private IUserService iUserService;
+	
+	@Autowired
+	private IPersonneRepository iPersonneRepository;
 
 
 	public static void main(String[] args) {
@@ -71,6 +78,22 @@ public class ApiJpaApplication {
 			utilisateur.getGroupes().forEach(g -> {
 				System.out.println("Groupe : " +g.getGroupename());
 			});		
+			
+			//------------------------------------
+			
+			Etudiant etudiant = new Etudiant();
+			etudiant.setNom("hamza");
+			etudiant.setDateNaissance(new Date());
+			etudiant.setNote(16);
+			iPersonneRepository.save(etudiant);
+			
+			Enseignant enseignant = new Enseignant();
+			enseignant.setNom("syrineq");
+			enseignant.setDateNaissance(new Date());
+			enseignant.setMatiere("Math");
+			iPersonneRepository.save(enseignant);
+			
+			
 			
 		};
 		
